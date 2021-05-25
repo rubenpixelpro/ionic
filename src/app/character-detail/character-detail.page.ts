@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { CharacterService } from '../character.service';
 import { Character } from '../types';
@@ -18,7 +19,8 @@ export class CharacterDetailPage implements OnInit {
   constructor(characterService: CharacterService,
     activatedRoute: ActivatedRoute, 
     private angularFirestore: AngularFirestore, 
-    private angularFireAuth: AngularFireAuth) {
+    private angularFireAuth: AngularFireAuth,
+    private toastController: ToastController) {
       const name = activatedRoute.snapshot.params["name"];
 
       this.characterDetail = characterService.getCharacter(name);
@@ -44,7 +46,15 @@ export class CharacterDetailPage implements OnInit {
             this.angularFirestore.collection("favoritos")
             .doc(this.uid)
             .collection("favoritos")
-            .add(character[0]);
+            .add(character[0])
+            .then(()=> {
+              const toast = this.toastController.create({
+                message: character[0].Name + " ha sido añadido a favoritos",
+                duration: 3000,
+                position: "top"
+              });
+              toast.then(notif => notif.present());
+            });
           }
         })      
     });
