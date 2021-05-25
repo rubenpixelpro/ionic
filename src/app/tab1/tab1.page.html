@@ -7,36 +7,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/1280px-Ionic_Logo.svg.png"></ion-img>
+  
+  <ion-card button *ngFor="let character of(characterList | async)">
+    <ion-img [src]="character.PicUrl"></ion-img>
     <ion-card-header>
       <ion-card-title>
-        Curso de Ionic
+        {{character.Name}}
       </ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card>
-    <ion-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/1280px-Ionic_Logo.svg.png"></ion-img>
-    <ion-card-header>
-      <ion-card-title>
-        Curso de Ionic
-      </ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/1280px-Ionic_Logo.svg.png"></ion-img>
-    <ion-card-header>
-      <ion-card-title>
-        Curso de Ionic
-      </ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ionic_Logo.svg/1280px-Ionic_Logo.svg.png"></ion-img>
-    <ion-card-header>
-      <ion-card-title>
-        Curso de Ionic
-      </ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  
  </ion-content>

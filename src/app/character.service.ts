@@ -20,4 +20,4 @@ export class CharacterService {
   }
 }
 
-const API = "futuramaapi.herokuapp.com/api/v2/characters";
+const API = "https://futuramaapi.herokuapp.com/api/v2/characters";
