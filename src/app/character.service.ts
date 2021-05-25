@@ -9,11 +9,11 @@ export class CharacterService {
   constructor(private http: HttpClient) { }
 
   getAllCharacters() {
-    
+    return this.http.get(API);
   }
 
   getCharacter(name: string) {
-    
+    return this.http.get(API + "?search=" + name);
     
   }
 }
