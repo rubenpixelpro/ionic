@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Character } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +10,12 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCharacters() {
-    return this.http.get(API);
+  getAllCharacters(): Observable<Character[]> {
+    return this.http.get<Character[]>(API);
   }
 
-  getCharacter(name: string) {
-    return this.http.get(API + "?search=" + name);
+  getCharacter(name: string): Observable<Character> {
+    return this.http.get<Character>(API + "?search=" + name);
     
   }
 }
