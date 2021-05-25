@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   
-  <ion-card routerLink="character-detail" button *ngFor="let character of(characterList | async)">
+  <ion-card [routerLink]="['character-detail', character.Name]" button *ngFor="let character of(characterList | async)">
     <ion-img [src]="character.PicUrl"></ion-img>
     <ion-card-header>
       <ion-card-title>
