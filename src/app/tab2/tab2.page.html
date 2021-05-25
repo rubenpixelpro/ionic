@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Favoritos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let character of(favoriteCharacterList | async)">
+    <ion-img [src]="character.PicUrl"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{character.Name}}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
