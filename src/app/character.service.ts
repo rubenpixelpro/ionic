@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAllCharacters() {
     
@@ -17,3 +18,4 @@ export class CharacterService {
   }
 }
 
+const API = "futuramaapi.herokuapp.com/api/v2/characters";
