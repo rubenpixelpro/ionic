@@ -10,4 +10,9 @@ export interface Character {
     VoicedBy: string
     Name: string
   }
+
+  export interface LoginCredential {
+    email: string
+    password: string
+  }
   
