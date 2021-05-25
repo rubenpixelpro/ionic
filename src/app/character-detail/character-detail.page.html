@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card class="ion-no-margin" *ngFor="let character of (characterDetail | async | slice:0:1)">
-    <ion-img [src]="character.PicUrl"></ion-img>
+    <ion-img [src]="character.PicUrl" style="height:25vh"></ion-img>
     <ion-card-header>
       <ion-card-title>
         {{character.Name}}
@@ -17,6 +17,26 @@
     </ion-card-header>
     <ion-card-content>
       {{character.Profession}}
+      <ion-list>
+        <ion-item>
+          <ion-label>Species</ion-label>
+          <ion-chip color="primary">
+            {{character.Species}}
+          </ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>Status</ion-label>
+          <ion-chip color="primary">
+            {{character.Status}}
+          </ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label>Planet</ion-label>
+          <ion-chip color="primary">
+            {{character.Planet}}
+          </ion-chip>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
   
