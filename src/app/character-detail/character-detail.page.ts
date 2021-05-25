@@ -11,7 +11,7 @@ import { Character } from '../types';
 })
 export class CharacterDetailPage implements OnInit {
 
-  characterDetail: Observable<Character>;
+  characterDetail: Observable<Character[]>;
 
   constructor(characterService: CharacterService,
     activatedRoute: ActivatedRoute) {

@@ -3,10 +3,21 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>CharacterDetail</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="ion-no-margin" *ngFor="let character of (characterDetail | async | slice:0:1)">
+    <ion-img [src]="character.PicUrl"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{character.Name}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{character.Profession}}
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

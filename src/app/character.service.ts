@@ -14,8 +14,8 @@ export class CharacterService {
     return this.http.get<Character[]>(API);
   }
 
-  getCharacter(name: string): Observable<Character> {
-    return this.http.get<Character>(API + "?search=" + name);
+  getCharacter(name: string): Observable<Character[]> {
+    return this.http.get<Character[]>(API + "?search=" + encodeURIComponent(name));
     
   }
 }
