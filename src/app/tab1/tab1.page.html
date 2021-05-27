@@ -7,9 +7,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div *ngIf="!characterList">
+    <ion-card>
+      <ion-skeleton-text animated style="height: 35vh;"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-skeleton-text animated style="height: 35vh;"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card>
+      <ion-skeleton-text animated style="height: 35vh;"></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
   
   <ion-card [routerLink]="['character-detail', character.Name]" button *ngFor="let character of(characterList | async)">
-    <ion-img [src]="character.PicUrl"></ion-img>
+    <ion-img [src]="character.PicUrl" style="height: 35vh;"></ion-img>
     <ion-card-header>
       <ion-card-title>
         {{character.Name}}

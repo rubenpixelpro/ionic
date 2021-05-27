@@ -13,7 +13,11 @@ export class Tab1Page {
   characterList: Observable<Character[]>;
 
   constructor(characterService: CharacterService) {
-    this.characterList = characterService.getAllCharacters();
+    setTimeout(()=> {
+      this.characterList = characterService.getAllCharacters();
+    }, 2000);
+    
+    
 
   }
 
