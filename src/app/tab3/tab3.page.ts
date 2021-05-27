@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Camera, CameraResultType, CameraSource } from "@capacitor/core";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab3',
@@ -9,9 +12,19 @@ import { Camera, CameraResultType, CameraSource } from "@capacitor/core";
 })
 export class Tab3Page {
 
-  photo: string;
+  photo: Observable<any>;
+  uid: string;
 
-  constructor() {}
+  constructor(private angularFirestore: AngularFirestore, private angularFireAuth: AngularFireAuth) {
+
+    angularFireAuth.user.subscribe((user)=> {
+      this.uid = user.uid;
+      this.photo = angularFirestore.collection("foto-perfil")
+        .doc(this.uid)
+        .valueChanges()
+    });
+
+  }
 
   async takePhoto(){
     const capturedPhoto = await Camera.getPhoto({
@@ -22,7 +35,12 @@ export class Tab3Page {
       source: CameraSource.Camera
     });
 
-    this.photo = capturedPhoto.dataUrl;
+    
+    this.angularFirestore.collection("foto-perfil")
+      .doc(this.uid)
+      .set({
+        foto_src: capturedPhoto.dataUrl
+      });
   }
 
  

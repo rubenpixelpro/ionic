@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-avatar class="profile-pic">
-    <ion-img [src]="photo"></ion-img>
+    <ion-img [src]="(photo | async)?.foto_src"></ion-img>
   </ion-avatar>
   <ion-card>
     <ion-card-header>
