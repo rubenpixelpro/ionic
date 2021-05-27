@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-avatar class="profile-pic">
-    <ion-img></ion-img>
+    <ion-img [src]="photo"></ion-img>
   </ion-avatar>
   <ion-card>
     <ion-card-header>
@@ -17,7 +17,7 @@
     <ion-card-content>Autor del curso de Ionic</ion-card-content>
   </ion-card>
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-button>
+    <ion-button (click)="takePhoto()">
       <ion-icon name="camera"></ion-icon>
     </ion-button>
   </ion-fab>
